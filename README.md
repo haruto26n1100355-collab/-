@@ -1,1 +1,562 @@
-# -
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Haruto uchida — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600;1,9..144,700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #F6F1FF;
+    --paper: #FFFDF9;
+    --ink: #1D1B31;
+    --ink-soft: #4A4767;
+    --coral: #FF6F59;
+    --yellow: #FFC145;
+    --teal: #3FBFB0;
+    --line: rgba(29,27,49,0.12);
+    --display: 'Fraunces', serif;
+    --body: 'Space Grotesk', sans-serif;
+  }
+
+  *{ box-sizing: border-box; }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--body);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* subtle grid paper texture on the background */
+  body::before{
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(circle, rgba(29,27,49,0.06) 1px, transparent 1px);
+    background-size: 26px 26px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  a{ color: inherit; }
+
+  .wrap{
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 32px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(246,241,255,0.82);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner{
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 18px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-logo{
+    font-family: var(--display);
+    font-style: italic;
+    font-weight: 600;
+    font-size: 1.25rem;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+  }
+  .nav-links{
+    display: flex;
+    gap: 28px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.92rem;
+    font-weight: 500;
+  }
+  .nav-links a{
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 2px;
+  }
+  .nav-links a::after{
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: -2px;
+    height: 2px;
+    background: var(--coral);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+  }
+  .nav-links a:hover::after{ transform: scaleX(1); }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding: 120px 0 100px;
+    position: relative;
+  }
+  .eyebrow{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 28px;
+  }
+  .eyebrow .dot{
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--coral);
+  }
+  h1.hero-name{
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: clamp(3rem, 9vw, 6.4rem);
+    line-height: 0.98;
+    margin: 0 0 8px;
+  }
+  h1.hero-name em{
+    font-style: italic;
+    font-weight: 500;
+    color: var(--coral);
+  }
+  .squiggle{
+    width: min(420px, 70%);
+    height: 24px;
+    margin: 6px 0 28px;
+    display: block;
+  }
+  .hero-tagline{
+    font-size: clamp(1.05rem, 2vw, 1.3rem);
+    color: var(--ink-soft);
+    max-width: 560px;
+    line-height: 1.7;
+    margin: 0 0 36px;
+  }
+  .chip-row{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .chip{
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    box-shadow: 3px 3px 0 var(--line);
+  }
+  .chip.c-coral{ border-color: var(--coral); }
+  .chip.c-yellow{ border-color: var(--yellow); }
+  .chip.c-teal{ border-color: var(--teal); }
+
+  /* ---------- SECTION HEADS ---------- */
+  .section{ padding: 90px 0; }
+  .section-head{
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+    margin-bottom: 52px;
+  }
+  .section-num{
+    font-family: var(--display);
+    font-style: italic;
+    color: var(--ink-soft);
+    opacity: 0.5;
+    font-size: 1.1rem;
+  }
+  h2.section-title{
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    margin: 0;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+  .avatar-blob{
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(135deg, var(--coral), var(--yellow));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 3rem;
+    color: var(--paper);
+    border-radius: 58% 42% 63% 37% / 41% 47% 53% 59%;
+    animation: blobmorph 9s ease-in-out infinite;
+    box-shadow: 6px 8px 0 var(--line);
+  }
+  @keyframes blobmorph{
+    0%, 100%{ border-radius: 58% 42% 63% 37% / 41% 47% 53% 59%; }
+    50%{ border-radius: 42% 58% 39% 61% / 55% 40% 60% 45%; }
+  }
+  .about-text p{
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--ink-soft);
+    margin: 0 0 20px;
+    max-width: 620px;
+  }
+  .fact-list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 28px;
+    list-style: none;
+    padding: 0;
+  }
+  .fact-list li{
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 6px 14px;
+    background: var(--paper);
+    border-radius: 8px;
+    border: 1px dashed var(--line);
+  }
+
+  /* ---------- WORKS: pinboard of tilted cards ---------- */
+  .board{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 44px 32px;
+  }
+  .card{
+    position: relative;
+    background: var(--paper);
+    border-radius: 4px;
+    padding: 18px 18px 22px;
+    box-shadow: 0 10px 24px rgba(29,27,49,0.10);
+    transform: rotate(var(--tilt)) translateY(0);
+    transition: transform 0.35s cubic-bezier(.2,.8,.3,1.2), box-shadow 0.35s ease;
+    cursor: default;
+  }
+  .card:hover{
+    transform: rotate(0deg) translateY(-8px) scale(1.03);
+    box-shadow: 0 20px 34px rgba(29,27,49,0.18);
+    z-index: 5;
+  }
+  .card:nth-child(1){ --tilt: -3deg; }
+  .card:nth-child(2){ --tilt: 2deg; }
+  .card:nth-child(3){ --tilt: -1.5deg; }
+  .card:nth-child(4){ --tilt: 3deg; }
+  .card:nth-child(5){ --tilt: -2.5deg; }
+  .card:nth-child(6){ --tilt: 1.5deg; }
+  .tape{
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-3deg);
+    width: 70px;
+    height: 22px;
+    background: rgba(255,255,255,0.55);
+    border: 1px solid rgba(29,27,49,0.08);
+  }
+  .card-thumb{
+    height: 140px;
+    border-radius: 2px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 1.4rem;
+    color: var(--paper);
+  }
+  .thumb-coral{ background: var(--coral); }
+  .thumb-yellow{ background: var(--yellow); color: var(--ink); }
+  .thumb-teal{ background: var(--teal); }
+  .card-tag{
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 8px;
+  }
+  h3.card-title{
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1.3rem;
+    margin: 0 0 8px;
+  }
+  .card p{
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact{
+    text-align: center;
+    padding: 110px 0 80px;
+  }
+  h2.contact-title{
+    font-family: var(--display);
+    font-style: italic;
+    font-weight: 600;
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    margin: 0 0 20px;
+  }
+  .contact p{
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+    max-width: 480px;
+    margin: 0 auto 36px;
+    line-height: 1.7;
+  }
+  .btn-mail{
+    display: inline-block;
+    font-family: var(--body);
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    padding: 16px 36px;
+    background: var(--ink);
+    color: var(--bg);
+    border-radius: 999px;
+    box-shadow: 5px 5px 0 var(--coral);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .btn-mail:hover{
+    transform: translate(-3px,-3px);
+    box-shadow: 8px 8px 0 var(--coral);
+  }
+  .sns-row{
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 40px;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+  .sns-row a{ text-decoration: none; border-bottom: 1px solid var(--line); }
+
+  footer{
+    text-align: center;
+    padding: 30px 0 40px;
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- reveal on scroll ---------- */
+  .reveal{
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.in{
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation: none !important; transition: none !important; }
+  }
+
+  @media (max-width: 720px){
+    .about-grid{ grid-template-columns: 1fr; }
+    .avatar-blob{ width: 140px; height: 140px; font-size: 2.2rem; }
+    .nav-links{ display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="#top">Haruto.</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#works">Works</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero wrap" id="top">
+    <div class="eyebrow"><span class="dot"></span>Design Portfolio 2026</div>
+
+    <!-- ★ ここに名前を入れてください -->
+    <h1 class="hero-name">内田 暖人<br><em>Uchida haruto</em></h1>
+
+    <svg class="squiggle" viewBox="0 0 420 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M2 18C40 2 78 2 116 18C154 34 192 34 230 18C268 2 306 2 344 18C368 27 390 24 418 12"
+        stroke="#FF6F59" stroke-width="5" stroke-linecap="round"/>
+    </svg>
+
+    <!-- ★ 自己紹介の一言をここに -->
+    <p class="hero-tagline">色んなプログライミングに挑戦することが好きな、UI/人です。ワークショップ大好き！</p>
+
+    <div class="chip-row">
+      <span class="chip c-coral">modeling</span>
+      <span class="chip c-yellow">web site</span>
+      <span class="chip c-teal">Illustration</span>
+      <span class="chip">Motion</span>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section class="section wrap reveal" id="about">
+    <div class="section-head">
+      <span class="section-num">01</span>
+      <h2 class="section-title">About</h2>
+    </div>
+    <div class="about-grid">
+      <div class="avatar-blob">Y</div>
+      <div class="about-text">
+        <!-- ★ 自己紹介本文をここに -->
+        <p>はじめまして、内田暖人です。興味本位でblenderやweb制作をはじめ、基礎を覚えている最中です!</p>
+        <p>休日は、散歩で色んな所を徘徊しています。例えば大阪城や海遊館などの有名な場所や知名度のない場所も散歩しています。</p>
+        <p>鉱物はフィナンシェでたま〜〜に自分で作ったりもします。散歩の途中で見つけたフィナンシェ売ってるところは迷うことなく購入してます</p>
+        <ul class="fact-list">
+          <li>🎨 制作:3month</li>
+          <li>🛠️ blender / VSCode / Illustrator</li>
+          <li>📍 Osaka, Japan</li>
+          <li>☕ 好物: フィナンシェ</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WORKS ================= -->
+  <section class="section wrap reveal" id="works">
+    <div class="section-head">
+      <span class="section-num">02</span>
+      <h2 class="section-title">Works</h2>
+    </div>
+    <div class="board">
+
+      <!-- ★ 作品カードはこの形式でコピーして増やせます -->
+      <article class="card">
+        <div class="tape"></div>
+        <div class="card-thumb thumb-coral">Aa</div>
+        <span class="card-tag">Branding</span>
+        <h3 class="card-title">Marumaru Bakery</h3>
+        <p>小さな街のパン屋さんのロゴとパッケージデザイン。焼きたてのぬくもりを、丸みのあるタイポグラフィで表現しました。</p>
+      </article>
+
+      <article class="card">
+        <div class="tape"></div>
+        <div class="card-thumb thumb-teal">▲</div>
+        <span class="card-tag">UI / App</span>
+        <h3 class="card-title">Habit Drop</h3>
+        <p>習慣づくりアプリのUIデザイン。1日1滴、雫が溜まっていくアニメーションで達成感を可視化しました。</p>
+      </article>
+
+      <article class="card">
+        <div class="tape"></div>
+        <div class="card-thumb thumb-yellow">◆</div>
+        <span class="card-tag">Editorial</span>
+        <h3 class="card-title">Kioku Zine</h3>
+        <p>個人制作のZINE。古い写真とコラージュを組み合わせ、記憶をテーマにしたページレイアウトを構成しました。</p>
+      </article>
+
+      <article class="card">
+        <div class="tape"></div>
+        <div class="card-thumb thumb-coral">✿</div>
+        <span class="card-tag">Illustration</span>
+        <h3 class="card-title">Season Stamps</h3>
+        <p>四季をモチーフにしたスタンプ風イラストシリーズ。SNS用のステッカーパックとして展開しました。</p>
+      </article>
+
+      <article class="card">
+        <div class="tape"></div>
+        <div class="card-thumb thumb-teal">◐</div>
+        <span class="card-tag">Motion</span>
+        <h3 class="card-title">Loop Radio</h3>
+        <p>ポッドキャストのオープニングモーション。レコードの回転をモチーフにしたループアニメーションを制作。</p>
+      </article>
+
+      <article class="card">
+        <div class="tape"></div>
+        <div class="card-thumb thumb-yellow">✎</div>
+        <span class="card-tag">Branding</span>
+        <h3 class="card-title">Nekoyashiki Cafe</h3>
+        <p>猫がテーマの喫茶店のブランディング一式。メニュー、コースター、店内サインまでトータルで設計しました。</p>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section class="contact wrap reveal" id="contact">
+    <h2 class="contact-title">お話しませんか?</h2>
+    <p>お仕事のご相談、コラボレーション、ちょっとした雑談まで。お気軽にご連絡ください。</p>
+    <!-- ★ メールアドレスをここに -->
+    <a class="btn-mail" href="mailto:hello@example.com">メールを送る</a>
+    <div class="sns-row">
+      <!-- ★ SNSリンクをここに -->
+      <a href="#">Instagram</a>
+      <a href="#">X (Twitter)</a>
+      <a href="#">Behance</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  © 2026 Haruto uchida. Made with a little bit of paper and glue.
+</footer>
+
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const cards = document.querySelectorAll('.card');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting){
+        entry.target.classList.add('in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  revealEls.forEach(el => observer.observe(el));
+
+  // stagger the card entrance slightly
+  cards.forEach((card, i) => {
+    card.style.transitionDelay = (i * 60) + 'ms';
+  });
+</script>
+
+</body>
+</html>
