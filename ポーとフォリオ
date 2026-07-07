@@ -211,6 +211,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
     font-family: var(--display);
     font-style: italic;
     font-size: 3rem;
@@ -218,6 +219,11 @@
     border-radius: 58% 42% 63% 37% / 41% 47% 53% 59%;
     animation: blobmorph 9s ease-in-out infinite;
     box-shadow: 6px 8px 0 var(--line);
+  }
+  .avatar-blob img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
   @keyframes blobmorph{
     0%, 100%{ border-radius: 58% 42% 63% 37% / 41% 47% 53% 59%; }
@@ -441,7 +447,9 @@
       <h2 class="section-title">About</h2>
     </div>
     <div class="about-grid">
-      <div class="avatar-blob">Y</div>
+      <div class="avatar-blob">
+        <img src="profile.png" alt="内田暖人の写真">
+      </div>
       <div class="about-text">
         <!-- ★ 自己紹介本文をここに -->
         <p>はじめまして、内田暖人です。興味本位でblenderやweb制作をはじめ、基礎を覚えている最中です!</p>
