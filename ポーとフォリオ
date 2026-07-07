@@ -444,17 +444,18 @@
   <section class="section wrap reveal" id="about">
     <div class="section-head">
       <span class="section-num">01</span>
-      <h2 class="section-title">About</h2>
+      <h2 class="section-title">自己紹介</h2>
     </div>
     <div class="about-grid">
       <div class="avatar-blob">
-        <img src="profile.png" alt="内田暖人の写真">
+        <img src="profile.jpg" alt="内田暖人の写真">
       </div>
       <div class="about-text">
         <!-- ★ 自己紹介本文をここに -->
+        <h2>名前：内田 暖人 / うちだ はると<br>学年：高1 / 15歳<br>ゲーム：ゼンゼロ/タルコフ/マイクラ<br>趣味：散歩<h2>
         <p>はじめまして、内田暖人です。興味本位でblenderやweb制作をはじめ、基礎を覚えている最中です!</p>
         <p>休日は、散歩で色んな所を徘徊しています。例えば大阪城や海遊館などの有名な場所や知名度のない場所も散歩しています。</p>
-        <p>鉱物はフィナンシェでたま〜〜に自分で作ったりもします。散歩の途中で見つけたフィナンシェ売ってるところは迷うことなく購入してます</p>
+        <p>好物はフィナンシェでたま〜〜に自分で作ったりもします。散歩の途中で見つけたフィナンシェ売ってるところは迷うことなく購入してます</p>
         <ul class="fact-list">
           <li>🎨 制作:3month</li>
           <li>🛠️ blender / VSCode / Illustrator</li>
@@ -469,7 +470,7 @@
   <section class="section wrap reveal" id="works">
     <div class="section-head">
       <span class="section-num">02</span>
-      <h2 class="section-title">Works</h2>
+      <h2 class="section-title">成果物</h2>
     </div>
     <div class="board">
 
@@ -477,7 +478,7 @@
       <article class="card">
         <div class="tape"></div>
         <div class="card-thumb thumb-coral">Aa</div>
-        <span class="card-tag">Branding</span>
+        <span class="card-tag">blender</span>
         <h3 class="card-title">Marumaru Bakery</h3>
         <p>小さな街のパン屋さんのロゴとパッケージデザイン。焼きたてのぬくもりを、丸みのあるタイポグラフィで表現しました。</p>
       </article>
