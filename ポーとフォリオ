@@ -761,14 +761,14 @@
     <p>溶岩が入ってるっぽくしたはず...</p>
   </article>
 
-  <article class="card" data-tag="blender" data-difficult="ここに『難しかった点』を書きます。作業のどこでつまずいたか、どう試行錯誤したかなど。" data-favorite="ここに『好きな点』を書きます。完成して満足しているポイントや、こだわった部分など。">
+  <article class="card" data-tag="blender" data-difficult="海に合わせてカメラを動かすのが苦戦した。" data-favorite="ここに『好きな点』を書きます。完成して満足しているポイントや、こだわった部分など。">
     <div class="tape"></div>
     <div class="card-thumb card-thumb-photo">
-      <img src="" alt="" style="object-position: top;">
+      <img src="007海.png" alt="海anm" style="object-position: top;">
     </div>
     <span class="card-tag">blender</span>
-    <h3 class="card-title">作品タイトル</h3>
-    <p>作品の説明文をここに書きます。</p>
+    <h3 class="card-title">海anm</h3>
+    <p>初めてアニメショーンを作ってここからずっと海外の人を参考に制作してる</p>
   </article>
 
   <article class="card" data-tag="blender" data-difficult="ここに『難しかった点』を書きます。作業のどこでつまずいたか、どう試行錯誤したかなど。" data-favorite="ここに『好きな点』を書きます。完成して満足しているポイントや、こだわった部分など。">
