@@ -367,6 +367,85 @@
     color: var(--ink-soft);
     font-size: 0.95rem;
   }
+  #blenderBoard{
+    justify-content: center;
+  }
+  /* Blenderまとめのカードはどこを押しても詳細が開けるように */
+  .blender-page #blenderBoard .card{
+    cursor: pointer;
+  }
+  .blender-page #blenderBoard .card-title{
+    transition: color 0.2s ease;
+  }
+  .blender-page #blenderBoard .card:hover .card-title{
+    color: var(--coral);
+  }
+
+  /* ---------- WORK MODAL (カードを押した時のポップアップ) ---------- */
+  .work-modal-backdrop{
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(29,27,49,0.45);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .work-modal-backdrop.is-open{
+    display: flex;
+  }
+  .work-modal{
+    position: relative;
+    background: var(--paper);
+    border-radius: 6px;
+    max-width: 480px;
+    width: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: 32px 28px;
+    box-shadow: 0 24px 48px rgba(29,27,49,0.28);
+  }
+  .work-modal-close{
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: transparent;
+    font-size: 1.4rem;
+    line-height: 1;
+    color: var(--ink-soft);
+    cursor: pointer;
+  }
+  .work-modal-close:hover{ color: var(--coral); }
+  .work-modal-title{
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1.4rem;
+    margin: 0 0 20px;
+    padding-right: 24px;
+  }
+  .work-modal-section{
+    margin-bottom: 20px;
+  }
+  .work-modal-section:last-child{
+    margin-bottom: 0;
+  }
+  .work-modal-section h4{
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin: 0 0 6px;
+  }
+  .work-modal-section p{
+    font-size: 0.98rem;
+    line-height: 1.75;
+    margin: 0;
+  }
 
   /* ---------- CONTACT ---------- */
   .contact{
@@ -519,22 +598,12 @@
     <div class="board">
 
       <!-- ★ 作品カードはこの形式でコピーして増やせます -->
-      <!-- ★ card-tag が「blender」のカードは自動でクリック可能になり、
-           クリックすると同じリンク(URL)のまま「Blenderまとめ」の画面に切り替わります -->
-      <article class="card is-linked" data-tag="blender" onclick="showBlenderView()">
-        <div class="tape"></div>
-        <div class="card-thumb thumb-coral">Aa</div>
-        <span class="card-tag">blender</span>
-        <h3 class="card-title">blender</h3>
-        <p>これまで制作したblenderの一覧</p>
-      </article>
-
-      <article class="card" data-tag="UI / App">
+      <article class="card is-linked" data-tag="UI / App" onclick="showBlenderView()">
         <div class="tape"></div>
         <div class="card-thumb thumb-teal">▲</div>
-        <span class="card-tag">UI / App</span>
-        <h3 class="card-title">Habit Drop</h3>
-        <p>習慣づくりアプリのUIデザイン。1日1滴、雫が溜まっていくアニメーションで達成感を可視化しました。</p>
+        <span class="card-tag">3DCG</span>
+        <h3 class="card-title">blender</h3>
+        <p>これまで制作したblenderの一覧</p>
       </article>
 
       <article class="card" data-tag="Editorial">
@@ -594,6 +663,229 @@
 
 </div><!-- /#view-portfolio -->
 
+<!-- ================= BLENDER SOURCE (成果物には表示されない、非表示の作品プール) ================= -->
+<!-- ★ Blenderの作品を増やしたい時は、この中に .card をコピーして増やしてください。
+     ここに書いたカードは「成果物」セクションには出ず、「Blenderまとめ」画面にだけ表示されます。 -->
+<div id="blenderSource" hidden>
+
+  <article class="card" data-tag="blender" data-difficult="ここに『難しかった点』を書きます。作業のどこでつまずいたか、どう試行錯誤したかなど。" data-favorite="ここに『好きな点』を書きます。完成して満足しているポイントや、こだわった部分など。">
+    <div class="tape"></div>
+    <div class="card-thumb thumb-coral">Aa</div>
+    <span class="card-tag">BLENDER</span>
+    <h3 class="card-title">blender</h3>
+    <p>これまで制作したblenderの一覧</p>
+  </article>
+
+  <article class="card" data-tag="blender" data-difficult="ここに『難しかった点』を書きます。作業のどこでつまずいたか、どう試行錯誤したかなど。" data-favorite="ここに『好きな点』を書きます。完成して満足しているポイントや、こだわった部分など。">
+    <div class="tape"></div>
+    <div class="card-thumb thumb-teal">◆</div>
+    <span class="card-tag">blender</span>
+    <h3 class="card-title">作品タイトル</h3>
+    <p>作品の説明文をここに書きます。</p>
+  </article>
+
+  <article class="card" data-tag="blender" data-difficult="ここに『難しかった点』を書きます。作業のどこでつまずいたか、どう試行錯誤したかなど。" data-favorite="ここに『好きな点』を書きます。完成して満足しているポイントや、こだわった部分など。">
+    <div class="tape"></div>
+    <div class="card-thumb thumb-yellow">✿</div>
+    <span class="card-tag">blender</span>
+    <h3 class="card-title">作品タイトル</h3>
+    <p>作品の説明文をここに書きます。</p>
+  </article>
+
+  <article class="card" data-tag="blender" data-difficult="ここに『難しかった点』を書きます。作業のどこでつまずいたか、どう試行錯誤したかなど。" data-favorite="ここに『好きな点』を書きます。完成して満足しているポイントや、こだわった部分など。">
+    <div class="tape"></div>
+    <div class="card-thumb thumb-coral">Aa</div>
+    <span class="card-tag">blender</span>
+    <h3 class="card-title">作品タイトル</h3>
+    <p>作品の説明文をここに書きます。</p>
+  </article>
+
+  <article class="card" data-tag="blender" data-difficult="ここに『難しかった点』を書きます。作業のどこでつまずいたか、どう試行錯誤したかなど。" data-favorite="ここに『好きな点』を書きます。完成して満足しているポイントや、こだわった部分など。">
+    <div class="tape"></div>
+    <div class="card-thumb thumb-teal">◆</div>
+    <span class="card-tag">blender</span>
+    <h3 class="card-title">作品タイトル</h3>
+    <p>作品の説明文をここに書きます。</p>
+  </article>
+
+  <article class="card" data-tag="blender" data-difficult="ここに『難しかった点』を書きます。作業のどこでつまずいたか、どう試行錯誤したかなど。" data-favorite="ここに『好きな点』を書きます。完成して満足しているポイントや、こだわった部分など。">
+    <div class="tape"></div>
+    <div class="card-thumb thumb-yellow">✿</div>
+    <span class="card-tag">blender</span>
+    <h3 class="card-title">作品タイトル</h3>
+    <p>作品の説明文をここに書きます。</p>
+  </article>
+
+  <article class="card" data-tag="blender" data-difficult="ここに『難しかった点』を書きます。作業のどこでつまずいたか、どう試行錯誤したかなど。" data-favorite="ここに『好きな点』を書きます。完成して満足しているポイントや、こだわった部分など。">
+    <div class="tape"></div>
+    <div class="card-thumb thumb-coral">Aa</div>
+    <span class="card-tag">blender</span>
+    <h3 class="card-title">作品タイトル</h3>
+    <p>作品の説明文をここに書きます。</p>
+  </article>
+
+  <article class="card" data-tag="blender" data-difficult="ここに『難しかった点』を書きます。作業のどこでつまずいたか、どう試行錯誤したかなど。" data-favorite="ここに『好きな点』を書きます。完成して満足しているポイントや、こだわった部分など。">
+    <div class="tape"></div>
+    <div class="card-thumb thumb-teal">◆</div>
+    <span class="card-tag">blender</span>
+    <h3 class="card-title">作品タイトル</h3>
+    <p>作品の説明文をここに書きます。</p>
+  </article>
+
+  <article class="card" data-tag="blender" data-difficult="ここに『難しかった点』を書きます。作業のどこでつまずいたか、どう試行錯誤したかなど。" data-favorite="ここに『好きな点』を書きます。完成して満足しているポイントや、こだわった部分など。">
+    <div class="tape"></div>
+    <div class="card-thumb thumb-yellow">✿</div>
+    <span class="card-tag">blender</span>
+    <h3 class="card-title">作品タイトル</h3>
+    <p>作品の説明文をここに書きます。</p>
+  </article>
+
+  <article class="card" data-tag="blender" data-difficult="ここに『難しかった点』を書きます。作業のどこでつまずいたか、どう試行錯誤したかなど。" data-favorite="ここに『好きな点』を書きます。完成して満足しているポイントや、こだわった部分など。">
+    <div class="tape"></div>
+    <div class="card-thumb thumb-coral">Aa</div>
+    <span class="card-tag">blender</span>
+    <h3 class="card-title">作品タイトル</h3>
+    <p>作品の説明文をここに書きます。</p>
+  </article>
+
+  <article class="card" data-tag="blender" data-difficult="ここに『難しかった点』を書きます。作業のどこでつまずいたか、どう試行錯誤したかなど。" data-favorite="ここに『好きな点』を書きます。完成して満足しているポイントや、こだわった部分など。">
+    <div class="tape"></div>
+    <div class="card-thumb thumb-teal">◆</div>
+    <span class="card-tag">blender</span>
+    <h3 class="card-title">作品タイトル</h3>
+    <p>作品の説明文をここに書きます。</p>
+  </article>
+
+  <article class="card" data-tag="blender" data-difficult="ここに『難しかった点』を書きます。作業のどこでつまずいたか、どう試行錯誤したかなど。" data-favorite="ここに『好きな点』を書きます。完成して満足しているポイントや、こだわった部分など。">
+    <div class="tape"></div>
+    <div class="card-thumb thumb-yellow">✿</div>
+    <span class="card-tag">blender</span>
+    <h3 class="card-title">作品タイトル</h3>
+    <p>作品の説明文をここに書きます。</p>
+  </article>
+
+  <article class="card" data-tag="blender" data-difficult="ここに『難しかった点』を書きます。作業のどこでつまずいたか、どう試行錯誤したかなど。" data-favorite="ここに『好きな点』を書きます。完成して満足しているポイントや、こだわった部分など。">
+    <div class="tape"></div>
+    <div class="card-thumb thumb-coral">Aa</div>
+    <span class="card-tag">blender</span>
+    <h3 class="card-title">作品タイトル</h3>
+    <p>作品の説明文をここに書きます。</p>
+  </article>
+
+  <article class="card" data-tag="blender" data-difficult="ここに『難しかった点』を書きます。作業のどこでつまずいたか、どう試行錯誤したかなど。" data-favorite="ここに『好きな点』を書きます。完成して満足しているポイントや、こだわった部分など。">
+    <div class="tape"></div>
+    <div class="card-thumb thumb-teal">◆</div>
+    <span class="card-tag">blender</span>
+    <h3 class="card-title">作品タイトル</h3>
+    <p>作品の説明文をここに書きます。</p>
+  </article>
+
+  <article class="card" data-tag="blender" data-difficult="ここに『難しかった点』を書きます。作業のどこでつまずいたか、どう試行錯誤したかなど。" data-favorite="ここに『好きな点』を書きます。完成して満足しているポイントや、こだわった部分など。">
+    <div class="tape"></div>
+    <div class="card-thumb thumb-yellow">✿</div>
+    <span class="card-tag">blender</span>
+    <h3 class="card-title">作品タイトル</h3>
+    <p>作品の説明文をここに書きます。</p>
+  </article>
+
+  <article class="card" data-tag="blender" data-difficult="ここに『難しかった点』を書きます。作業のどこでつまずいたか、どう試行錯誤したかなど。" data-favorite="ここに『好きな点』を書きます。完成して満足しているポイントや、こだわった部分など。">
+    <div class="tape"></div>
+    <div class="card-thumb thumb-coral">Aa</div>
+    <span class="card-tag">blender</span>
+    <h3 class="card-title">作品タイトル</h3>
+    <p>作品の説明文をここに書きます。</p>
+  </article>
+
+  <article class="card" data-tag="blender" data-difficult="ここに『難しかった点』を書きます。作業のどこでつまずいたか、どう試行錯誤したかなど。" data-favorite="ここに『好きな点』を書きます。完成して満足しているポイントや、こだわった部分など。">
+    <div class="tape"></div>
+    <div class="card-thumb thumb-teal">◆</div>
+    <span class="card-tag">blender</span>
+    <h3 class="card-title">作品タイトル</h3>
+    <p>作品の説明文をここに書きます。</p>
+  </article>
+
+  <article class="card" data-tag="blender" data-difficult="ここに『難しかった点』を書きます。作業のどこでつまずいたか、どう試行錯誤したかなど。" data-favorite="ここに『好きな点』を書きます。完成して満足しているポイントや、こだわった部分など。">
+    <div class="tape"></div>
+    <div class="card-thumb thumb-yellow">✿</div>
+    <span class="card-tag">blender</span>
+    <h3 class="card-title">作品タイトル</h3>
+    <p>作品の説明文をここに書きます。</p>
+  </article>
+
+  <article class="card" data-tag="blender" data-difficult="ここに『難しかった点』を書きます。作業のどこでつまずいたか、どう試行錯誤したかなど。" data-favorite="ここに『好きな点』を書きます。完成して満足しているポイントや、こだわった部分など。">
+    <div class="tape"></div>
+    <div class="card-thumb thumb-coral">Aa</div>
+    <span class="card-tag">blender</span>
+    <h3 class="card-title">作品タイトル</h3>
+    <p>作品の説明文をここに書きます。</p>
+  </article>
+
+  <article class="card" data-tag="blender" data-difficult="ここに『難しかった点』を書きます。作業のどこでつまずいたか、どう試行錯誤したかなど。" data-favorite="ここに『好きな点』を書きます。完成して満足しているポイントや、こだわった部分など。">
+    <div class="tape"></div>
+    <div class="card-thumb thumb-teal">◆</div>
+    <span class="card-tag">blender</span>
+    <h3 class="card-title">作品タイトル</h3>
+    <p>作品の説明文をここに書きます。</p>
+  </article>
+
+  <article class="card" data-tag="blender" data-difficult="ここに『難しかった点』を書きます。作業のどこでつまずいたか、どう試行錯誤したかなど。" data-favorite="ここに『好きな点』を書きます。完成して満足しているポイントや、こだわった部分など。">
+    <div class="tape"></div>
+    <div class="card-thumb thumb-yellow">✿</div>
+    <span class="card-tag">blender</span>
+    <h3 class="card-title">作品タイトル</h3>
+    <p>作品の説明文をここに書きます。</p>
+  </article>
+
+  <article class="card" data-tag="blender" data-difficult="ここに『難しかった点』を書きます。作業のどこでつまずいたか、どう試行錯誤したかなど。" data-favorite="ここに『好きな点』を書きます。完成して満足しているポイントや、こだわった部分など。">
+    <div class="tape"></div>
+    <div class="card-thumb thumb-coral">Aa</div>
+    <span class="card-tag">blender</span>
+    <h3 class="card-title">作品タイトル</h3>
+    <p>作品の説明文をここに書きます。</p>
+  </article>
+
+  <article class="card" data-tag="blender" data-difficult="ここに『難しかった点』を書きます。作業のどこでつまずいたか、どう試行錯誤したかなど。" data-favorite="ここに『好きな点』を書きます。完成して満足しているポイントや、こだわった部分など。">
+    <div class="tape"></div>
+    <div class="card-thumb thumb-teal">◆</div>
+    <span class="card-tag">blender</span>
+    <h3 class="card-title">作品タイトル</h3>
+    <p>作品の説明文をここに書きます。</p>
+  </article>
+
+  <article class="card" data-tag="blender" data-difficult="ここに『難しかった点』を書きます。作業のどこでつまずいたか、どう試行錯誤したかなど。" data-favorite="ここに『好きな点』を書きます。完成して満足しているポイントや、こだわった部分など。">
+    <div class="tape"></div>
+    <div class="card-thumb thumb-yellow">✿</div>
+    <span class="card-tag">blender</span>
+    <h3 class="card-title">作品タイトル</h3>
+    <p>作品の説明文をここに書きます。</p>
+  </article>
+
+  <article class="card" data-tag="blender" data-difficult="ここに『難しかった点』を書きます。作業のどこでつまずいたか、どう試行錯誤したかなど。" data-favorite="ここに『好きな点』を書きます。完成して満足しているポイントや、こだわった部分など。">
+    <div class="tape"></div>
+    <div class="card-thumb thumb-coral">Aa</div>
+    <span class="card-tag">blender</span>
+    <h3 class="card-title">作品タイトル</h3>
+    <p>作品の説明文をここに書きます。</p>
+  </article>
+
+  <article class="card" data-tag="blender" data-difficult="ここに『難しかった点』を書きます。作業のどこでつまずいたか、どう試行錯誤したかなど。" data-favorite="ここに『好きな点』を書きます。完成して満足しているポイントや、こだわった部分など。">
+    <div class="tape"></div>
+    <div class="card-thumb thumb-teal">◆</div>
+    <span class="card-tag">blender</span>
+    <h3 class="card-title">作品タイトル</h3>
+    <p>作品の説明文をここに書きます。</p>
+  </article>
+
+  <article class="card" data-tag="blender" data-difficult="ここに『難しかった点』を書きます。作業のどこでつまずいたか、どう試行錯誤したかなど。" data-favorite="ここに『好きな点』を書きます。完成して満足しているポイントや、こだわった部分など。">
+    <div class="tape"></div>
+    <div class="card-thumb thumb-yellow">✿</div>
+    <span class="card-tag">blender</span>
+    <h3 class="card-title">作品タイトル</h3>
+    <p>作品の説明文をここに書きます。</p>
+  </article>
+
+</div><!-- /#blenderSource -->
+
 <!-- ================= BLENDER SUMMARY (別画面・同じリンク内で切り替え) ================= -->
 <!-- ★ Blenderタグの作品を増やしたら、ここには何もしなくてOK。
      JSが data-tag="blender" のカードを自動で集めてこの画面に表示します -->
@@ -619,6 +911,22 @@
       <div class="board" id="blenderBoard"></div>
     </section>
   </main>
+
+  <!-- ★ 作品タイトルをクリックすると、ここに詳細(難しかった点・好きな点)がポップアップ表示されます -->
+  <div class="work-modal-backdrop" id="workModalBackdrop" onclick="closeWorkModal(event)">
+    <div class="work-modal" id="workModal" onclick="event.stopPropagation()">
+      <button class="work-modal-close" onclick="closeWorkModal()" aria-label="閉じる">×</button>
+      <h3 class="work-modal-title" id="workModalTitle"></h3>
+      <div class="work-modal-section">
+        <h4>難しかった点</h4>
+        <p id="workModalDifficult"></p>
+      </div>
+      <div class="work-modal-section">
+        <h4>好きな点</h4>
+        <p id="workModalFavorite"></p>
+      </div>
+    </div>
+  </div>
 
   <footer>
     © 2026 Haruto uchida. Made with a little bit of paper and glue.
@@ -647,14 +955,15 @@
   });
 
   // ---------- Blender works summary: 同じリンク内での画面切り替え ----------
-  // data-tag="blender" が付いたカードだけを集めて、Blenderまとめ画面に複製表示します。
+  // data-tag="blender" が付いたカードを #blenderSource（非表示）から集めて、
+  // Blenderまとめ画面にだけ複製表示します。成果物セクションには一切表示されません。
   const blenderBoard = document.getElementById('blenderBoard');
   const viewPortfolio = document.getElementById('view-portfolio');
   const viewBlender = document.getElementById('view-blender');
 
   function buildBlenderBoard(){
     blenderBoard.innerHTML = '';
-    const blenderCards = document.querySelectorAll('#works .board > .card[data-tag="blender" i]');
+    const blenderCards = document.querySelectorAll('#blenderSource > .card[data-tag="blender" i]');
 
     if (blenderCards.length === 0){
       blenderBoard.innerHTML = '<p class="blender-empty">まだBlender作品が登録されていません。</p>';
@@ -663,11 +972,33 @@
 
     blenderCards.forEach((card) => {
       const clone = card.cloneNode(true);
-      clone.classList.remove('is-linked');
-      clone.removeAttribute('onclick');
+      clone.addEventListener('click', () => openWorkModal(clone));
       blenderBoard.appendChild(clone);
     });
   }
+
+  // ---------- Work modal: 作品タイトルを押すと詳細をポップアップ表示 ----------
+  const workModalBackdrop = document.getElementById('workModalBackdrop');
+  const workModalTitle = document.getElementById('workModalTitle');
+  const workModalDifficult = document.getElementById('workModalDifficult');
+  const workModalFavorite = document.getElementById('workModalFavorite');
+
+  function openWorkModal(card){
+    const title = card.querySelector('.card-title')?.textContent || '';
+    workModalTitle.textContent = title;
+    workModalDifficult.textContent = card.dataset.difficult || '';
+    workModalFavorite.textContent = card.dataset.favorite || '';
+    workModalBackdrop.classList.add('is-open');
+  }
+
+  function closeWorkModal(event){
+    if (event) event.stopPropagation();
+    workModalBackdrop.classList.remove('is-open');
+  }
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeWorkModal();
+  });
 
   function showBlenderView(){
     buildBlenderBoard();
