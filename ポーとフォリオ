@@ -326,6 +326,47 @@
     color: var(--ink-soft);
     margin: 0;
   }
+  .card.is-linked{ cursor: pointer; }
+  .card.is-linked::after{
+    content: "Blenderまとめを見る →";
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--coral);
+  }
+  /* ---------- BLENDER SUMMARY (同じリンク内で切り替わる別画面) ---------- */
+  #view-portfolio, #view-blender{
+    min-height: 100vh;
+  }
+  #view-blender{
+    display: none;
+  }
+  .back-link{
+    font-size: 0.92rem;
+    font-weight: 600;
+    text-decoration: none;
+    padding-bottom: 2px;
+    border-bottom: 1px solid var(--line);
+  }
+  .back-link:hover{ border-color: var(--coral); color: var(--coral); }
+  .blender-page{
+    padding-top: 70px;
+  }
+  .blender-intro{
+    max-width: 640px;
+    margin-bottom: 48px;
+  }
+  .blender-intro p{
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--ink-soft);
+    margin: 0 0 16px;
+  }
+  .blender-empty{
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+  }
 
   /* ---------- CONTACT ---------- */
   .contact{
@@ -404,12 +445,15 @@
 </head>
 <body>
 
+<div id="view-portfolio">
+
 <header class="nav">
   <div class="nav-inner">
     <a class="nav-logo" href="#top">Haruto.</a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#works">Works</a></li>
+      <li><a href="#blender-page" onclick="showBlenderView(); return false;">Blender</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
@@ -475,15 +519,17 @@
     <div class="board">
 
       <!-- ★ 作品カードはこの形式でコピーして増やせます -->
-      <article class="card">
+      <!-- ★ card-tag が「blender」のカードは自動でクリック可能になり、
+           クリックすると同じリンク(URL)のまま「Blenderまとめ」の画面に切り替わります -->
+      <article class="card is-linked" data-tag="blender" onclick="showBlenderView()">
         <div class="tape"></div>
         <div class="card-thumb thumb-coral">Aa</div>
-        <span class="card-tag">blender</span>
-        <h3 class="card-title">Marumaru Bakery</h3>
-        <p>小さな街のパン屋さんのロゴとパッケージデザイン。焼きたてのぬくもりを、丸みのあるタイポグラフィで表現しました。</p>
+        <span class="card-tag">~~~~~</span>
+        <h3 class="card-title">blender</h3>
+        <p>これまで制作したblenderの一覧</p>
       </article>
 
-      <article class="card">
+      <article class="card" data-tag="UI / App">
         <div class="tape"></div>
         <div class="card-thumb thumb-teal">▲</div>
         <span class="card-tag">UI / App</span>
@@ -491,7 +537,7 @@
         <p>習慣づくりアプリのUIデザイン。1日1滴、雫が溜まっていくアニメーションで達成感を可視化しました。</p>
       </article>
 
-      <article class="card">
+      <article class="card" data-tag="Editorial">
         <div class="tape"></div>
         <div class="card-thumb thumb-yellow">◆</div>
         <span class="card-tag">Editorial</span>
@@ -499,7 +545,7 @@
         <p>個人制作のZINE。古い写真とコラージュを組み合わせ、記憶をテーマにしたページレイアウトを構成しました。</p>
       </article>
 
-      <article class="card">
+      <article class="card" data-tag="Illustration">
         <div class="tape"></div>
         <div class="card-thumb thumb-coral">✿</div>
         <span class="card-tag">Illustration</span>
@@ -507,7 +553,7 @@
         <p>四季をモチーフにしたスタンプ風イラストシリーズ。SNS用のステッカーパックとして展開しました。</p>
       </article>
 
-      <article class="card">
+      <article class="card" data-tag="Motion">
         <div class="tape"></div>
         <div class="card-thumb thumb-teal">◐</div>
         <span class="card-tag">Motion</span>
@@ -515,7 +561,7 @@
         <p>ポッドキャストのオープニングモーション。レコードの回転をモチーフにしたループアニメーションを制作。</p>
       </article>
 
-      <article class="card">
+      <article class="card" data-tag="Branding">
         <div class="tape"></div>
         <div class="card-thumb thumb-yellow">✎</div>
         <span class="card-tag">Branding</span>
@@ -546,6 +592,40 @@
   © 2026 Haruto uchida. Made with a little bit of paper and glue.
 </footer>
 
+</div><!-- /#view-portfolio -->
+
+<!-- ================= BLENDER SUMMARY (別画面・同じリンク内で切り替え) ================= -->
+<!-- ★ Blenderタグの作品を増やしたら、ここには何もしなくてOK。
+     JSが data-tag="blender" のカードを自動で集めてこの画面に表示します -->
+<div id="view-blender">
+
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#top" onclick="showPortfolioView(); return false;">Haruto.</a>
+      <a class="back-link" href="#top" onclick="showPortfolioView(); return false;">← ポートフォリオに戻る</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="section blender-page" id="blender-page">
+      <div class="section-head">
+        <span class="section-num">03</span>
+        <h2 class="section-title">Blenderまとめ</h2>
+      </div>
+      <div class="blender-intro">
+        <p>興味本位ではじめたBlenderで、これまでに制作したモデリング・パッケージデザインをまとめています。</p>
+        <p>基礎を覚えている最中なので、少しずつですが作品を増やしていく予定です。</p>
+      </div>
+      <div class="board" id="blenderBoard"></div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Haruto uchida. Made with a little bit of paper and glue.
+  </footer>
+
+</div><!-- /#view-blender -->
+
 <script>
   const revealEls = document.querySelectorAll('.reveal');
   const cards = document.querySelectorAll('.card');
@@ -564,6 +644,58 @@
   // stagger the card entrance slightly
   cards.forEach((card, i) => {
     card.style.transitionDelay = (i * 60) + 'ms';
+  });
+
+  // ---------- Blender works summary: 同じリンク内での画面切り替え ----------
+  // data-tag="blender" が付いたカードだけを集めて、Blenderまとめ画面に複製表示します。
+  const blenderBoard = document.getElementById('blenderBoard');
+  const viewPortfolio = document.getElementById('view-portfolio');
+  const viewBlender = document.getElementById('view-blender');
+
+  function buildBlenderBoard(){
+    blenderBoard.innerHTML = '';
+    const blenderCards = document.querySelectorAll('#works .board > .card[data-tag="blender" i]');
+
+    if (blenderCards.length === 0){
+      blenderBoard.innerHTML = '<p class="blender-empty">まだBlender作品が登録されていません。</p>';
+      return;
+    }
+
+    blenderCards.forEach((card) => {
+      const clone = card.cloneNode(true);
+      clone.classList.remove('is-linked');
+      clone.removeAttribute('onclick');
+      blenderBoard.appendChild(clone);
+    });
+  }
+
+  function showBlenderView(){
+    buildBlenderBoard();
+    viewPortfolio.style.display = 'none';
+    viewBlender.style.display = 'block';
+    window.scrollTo(0, 0);
+    history.pushState({ view: 'blender' }, '', '#blender-page');
+  }
+
+  function showPortfolioView(){
+    viewBlender.style.display = 'none';
+    viewPortfolio.style.display = 'block';
+    window.scrollTo(0, 0);
+    history.pushState({ view: 'portfolio' }, '', window.location.pathname + window.location.search);
+  }
+
+  // URLに #blender-page が付いた状態で開かれた場合は、最初からBlender画面を表示
+  if (window.location.hash === '#blender-page'){
+    showBlenderView();
+  }
+
+  // ブラウザの「戻る/進む」ボタンにも対応
+  window.addEventListener('popstate', () => {
+    if (window.location.hash === '#blender-page'){
+      showBlenderView();
+    } else {
+      showPortfolioView();
+    }
   });
 </script>
 
