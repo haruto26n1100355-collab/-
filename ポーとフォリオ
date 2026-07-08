@@ -734,32 +734,38 @@
   <article class="card" data-tag="blender" data-difficult="動画を見ながらでもの葉を表現したりチューリップを中心としながら茎を斜めにするのが難しかった。{これ傾けたら不自然に見えたり真っ直ぐにしちゃうと葉と重なることがある}" data-favorite="動画上では赤いチューリップ1つですが二本目は複製して小さくしたり色を変えたりした。花瓶のライトの反射やチューリップのメタリック感が良き">
     <div class="tape"></div>
     <div class="card-thumb card-thumb-photo">
-      <img src="004.花.png" alt="花瓶">
+      <img src="004.花.png" alt="チューリップ" style="object-position: top;">
     </div>
     <span class="card-tag">blender</span>
-    <h3 class="card-title">花瓶(チューリップ)</h3>
+    <h3 class="card-title">チューリップ+花瓶</h3>
     <p>色合いとか花の形が綺麗だなって思った成果物</p>
   </article>
 
-  <article class="card" data-tag="blender" data-difficult="ここに『難しかった点』を書きます。作業のどこでつまずいたか、どう試行錯誤したかなど。" data-favorite="ここに『好きな点』を書きます。完成して満足しているポイントや、こだわった部分など。">
+  <article class="card" data-tag="blender" data-difficult="影をどうつけるか+背もたれの凹んでる場所" data-favorite="難しかった点と同じく背もたれの角からどんどん凹んでる感じが好き">
     <div class="tape"></div>
-    <div class="card-thumb thumb-teal">◆</div>
+    <div class="card-thumb card-thumb-photo">
+      <img src="005ソファー.png" alt="ソファー" style="object-position: top;">
+    </div>
     <span class="card-tag">blender</span>
-    <h3 class="card-title">作品タイトル</h3>
-    <p>作品の説明文をここに書きます。</p>
+    <h3 class="card-title">ソファー</h3>
+    <p>1コマくらいで作った覚えがある</p>
+  </article>
+
+  <article class="card" data-tag="blender" data-difficult="ライトの加減が難しくて強すぎると影ができないし弱すぎると暗くてフラスコにライトが反射しない" data-favorite="フラスコのライトの反射+中に溶岩がある感じがいいと思ったけど水の奥に溶岩がある感じがする(人それぞれかも)">
+    <div class="tape"></div>
+    <div class="card-thumb card-thumb-photo">
+      <img src="006フラスコ.png" alt="フラスコ" style="object-position: top;">
+    </div>
+    <span class="card-tag">blender</span>
+    <h3 class="card-title">フラスコ</h3>
+    <p>溶岩が入ってるっぽくしたはず...</p>
   </article>
 
   <article class="card" data-tag="blender" data-difficult="ここに『難しかった点』を書きます。作業のどこでつまずいたか、どう試行錯誤したかなど。" data-favorite="ここに『好きな点』を書きます。完成して満足しているポイントや、こだわった部分など。">
     <div class="tape"></div>
-    <div class="card-thumb thumb-yellow">✿</div>
-    <span class="card-tag">blender</span>
-    <h3 class="card-title">作品タイトル</h3>
-    <p>作品の説明文をここに書きます。</p>
-  </article>
-
-  <article class="card" data-tag="blender" data-difficult="ここに『難しかった点』を書きます。作業のどこでつまずいたか、どう試行錯誤したかなど。" data-favorite="ここに『好きな点』を書きます。完成して満足しているポイントや、こだわった部分など。">
-    <div class="tape"></div>
-    <div class="card-thumb thumb-coral">Aa</div>
+    <div class="card-thumb card-thumb-photo">
+      <img src="" alt="" style="object-position: top;">
+    </div>
     <span class="card-tag">blender</span>
     <h3 class="card-title">作品タイトル</h3>
     <p>作品の説明文をここに書きます。</p>
