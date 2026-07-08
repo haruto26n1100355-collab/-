@@ -524,7 +524,7 @@
       <article class="card is-linked" data-tag="blender" onclick="showBlenderView()">
         <div class="tape"></div>
         <div class="card-thumb thumb-coral">Aa</div>
-        <span class="card-tag">~~~~~</span>
+        <span class="card-tag">blender</span>
         <h3 class="card-title">blender</h3>
         <p>これまで制作したblenderの一覧</p>
       </article>
