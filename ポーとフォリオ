@@ -266,7 +266,7 @@
     padding: 18px 18px 22px;
     box-shadow: 0 10px 24px rgba(29,27,49,0.10);
     transform: rotate(var(--tilt)) translateY(0);
-    transition: transform 0.35s cubic-bezier(.2,.8,.3,1.2), box-shadow 0.35s ease;
+    transition: transform 0.2s cubic-bezier(.2,.8,.3,1.2), box-shadow 0.2s ease;
     cursor: default;
   }
   .card:hover{
@@ -274,12 +274,12 @@
     box-shadow: 0 20px 34px rgba(29,27,49,0.18);
     z-index: 5;
   }
-  .card:nth-child(1){ --tilt: -3deg; }
-  .card:nth-child(2){ --tilt: 2deg; }
-  .card:nth-child(3){ --tilt: -1.5deg; }
-  .card:nth-child(4){ --tilt: 3deg; }
-  .card:nth-child(5){ --tilt: -2.5deg; }
-  .card:nth-child(6){ --tilt: 1.5deg; }
+  .card:nth-child(6n+1){ --tilt: -3deg; }
+  .card:nth-child(6n+2){ --tilt: 2deg; }
+  .card:nth-child(6n+3){ --tilt: -1.5deg; }
+  .card:nth-child(6n+4){ --tilt: 3deg; }
+  .card:nth-child(6n+5){ --tilt: -2.5deg; }
+  .card:nth-child(6n){ --tilt: 1.5deg; }
   .tape{
     position: absolute;
     top: -10px;
@@ -545,7 +545,8 @@
   padding: 0;
   overflow: hidden;
   }
-  .card-thumb-photo img{
+  .card-thumb-photo img,
+  .card-thumb-photo video{
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -584,7 +585,7 @@
     </svg>
 
     <!-- ★ 自己紹介の一言をここに -->
-    <p class="hero-tagline">色んなプログライミングに挑戦することが好きな、UI/人です。ワークショップ大好き！</p>
+    <p class="hero-tagline">色んなプログライミングに挑戦することが好きな人です。ワークショップ大好き！</p>
 
     <div class="chip-row">
       <span class="chip c-coral">modeling</span>
@@ -642,9 +643,9 @@
       <article class="card" data-tag="Editorial">
         <div class="tape"></div>
         <div class="card-thumb thumb-yellow">◆</div>
-        <span class="card-tag">Editorial</span>
-        <h3 class="card-title">Kioku Zine</h3>
-        <p>個人制作のZINE。古い写真とコラージュを組み合わせ、記憶をテーマにしたページレイアウトを構成しました。</p>
+        <span class="card-tag">Website</span>
+        <h3 class="card-title">VSCode</h3>
+        <p>ClaudeというAIを使って主に作成したwebサイトです。</p>
       </article>
 
       <article class="card" data-tag="Illustration">
@@ -761,14 +762,73 @@
     <p>溶岩が入ってるっぽくしたはず...</p>
   </article>
 
-  <article class="card" data-tag="blender" data-difficult="海に合わせてカメラを動かすのが苦戦した。" data-favorite="ここに『好きな点』を書きます。完成して満足しているポイントや、こだわった部分など。">
-    <div class="tape"></div>
+  <article class="card" data-tag="blender" data-difficult="カメラを海に基づいて動かす設定が難しかった。反省点は海にカメラが潜ったときにほぼ何も見えないから「もう少し明るくできたらなぁー」とは思った" data-favorite="空の雰囲気とか海の暗さがリアルなとこ。初めてのアニメーション作りなこともあって満足度が高かった。">    <div class="tape"></div>
     <div class="card-thumb card-thumb-photo">
-      <img src="007海.png" alt="海anm" style="object-position: top;">
+      <video src="海アニメーション.mov" poster="007海.png" muted playsinline preload="metadata"></video>
     </div>
     <span class="card-tag">blender</span>
-    <h3 class="card-title">海anm</h3>
-    <p>初めてアニメショーンを作ってここからずっと海外の人を参考に制作してる</p>
+    <h3 class="card-title">海アニメ</h3>
+    <p>初めてのアニメーション作りでここからの制作物は全て海外の人を参考にして作ってる</p>
+  </article>
+
+  <article class="card" data-tag="blender" data-difficult="瓦を並べるのが苦戦した。" data-favorite="瓦の綺麗になれべれた。ドアの木の質感や凹みが○">
+    <div class="tape"></div>
+    <div class="card-thumb card-thumb-photo">
+      <img src="008家.png" alt="家" style="object-position: top;">
+    </div>
+    <span class="card-tag">blender</span>
+    <h3 class="card-title">家</h3>
+    <p>全体的に質感が好み</p>
+  </article>
+
+  <article class="card" data-tag="blender" data-difficult="山の形はアドオンを使って質感はマテリアルて動画見ながらでも質感がなんか違くて一番苦戦した場所。" data-favorite="山と山の奥行きの表現の仕方とか空の色影が綺麗すぎるぅ">
+    <div class="tape"></div>
+    <div class="card-thumb card-thumb-photo">
+      <img src="009山のコピー.png" alt="山" style="object-position: top;">
+    </div>
+    <span class="card-tag">blender</span>
+    <h3 class="card-title">山</h3>
+    <p>一番の見た目自信作+奥行きの表現の仕方とか空のHDRIの使い方を学んだ</p>
+  </article>
+
+  <article class="card" data-tag="blender" data-difficult="井戸の石の色が3種類あってそれぞれ違う色に見せること。瓦の形4種類作る+大棟にそって瓦の角度を変える" data-favorite="瓦の感じとか、地面落ちてる小石とか縄も意外と簡単に作れてよかった">
+    <div class="tape"></div>
+    <div class="card-thumb card-thumb-photo">
+      <img src="010井戸.png" alt="井戸" style="object-position: top;">
+    </div>
+    <span class="card-tag">blender</span>
+    <h3 class="card-title">井戸</h3>
+    <p>背景いつかつけたいな</p>
+  </article>
+
+  <article class="card" data-tag="blender" data-difficult="これを作る上で難しかったことはないけど白いやつがぐるぐる回るようにしたかったけど参考動画のバージョンが古くて同じ手順ではできなかった" data-favorite="色と地面に反射してるところかな、色とかも簡単に変更できるから作ってて楽しかった">
+    <div class="tape"></div>
+    <div class="card-thumb card-thumb-photo">
+      <img src="011.あげあげ.png" alt="ぐるぐる回ってる" style="object-position: top;">
+    </div>
+    <span class="card-tag">blender</span>
+    <h3 class="card-title">気分</h3>
+    <p>アニメーションを加える予定だったのに〜</p>
+  </article>
+
+  <article class="card" data-tag="blender" data-difficult="一番は本当にライトで強度や色影を全部意識して作った。ラーメンとか26の文字フォントを変えたかった。" data-favorite="一番は黄身がライトによって丸の反射してるのがお気に入りポイントで机の上にもラーメンの器があるのもいい雰囲気出せてる">
+    <div class="tape"></div>
+    <div class="card-thumb card-thumb-photo">
+      <img src="012 ラーメン屋.png" alt="ラーメン屋さん" style="object-position: top;">
+    </div>
+    <span class="card-tag">blender</span>
+    <h3 class="card-title">ラーメン屋</h3>
+    <p>光の強度や雰囲気全てが完璧にできた(個人的に)</p>
+  </article>
+
+  <article class="card" data-tag="blender" data-difficult="黒色8:2茶で作るはずだったけど逆になってそのまま特攻した。色質も粗いし爆発してないし改良すべき点はたくさんあります" data-favorite="花火が散るところは形が動画と違って自分なりに改良していい感じになった。">
+    <div class="tape"></div>
+    <div class="card-thumb card-thumb-photo">
+      <video src="013爆弾映像0001-0045.mov" poster="013爆弾.png" muted playsinline preload="metadata"></video>
+    </div>
+    <span class="card-tag">blender</span>
+    <h3 class="card-title">不発弾</h3>
+    <p>一番なんか自信ない作品"いつか"爆発するやつ作ります</p>
   </article>
 
   <article class="card" data-tag="blender" data-difficult="ここに『難しかった点』を書きます。作業のどこでつまずいたか、どう試行錯誤したかなど。" data-favorite="ここに『好きな点』を書きます。完成して満足しているポイントや、こだわった部分など。">
@@ -810,127 +870,6 @@
     <h3 class="card-title">作品タイトル</h3>
     <p>作品の説明文をここに書きます。</p>
   </article>
-
-  <article class="card" data-tag="blender" data-difficult="ここに『難しかった点』を書きます。作業のどこでつまずいたか、どう試行錯誤したかなど。" data-favorite="ここに『好きな点』を書きます。完成して満足しているポイントや、こだわった部分など。">
-    <div class="tape"></div>
-    <div class="card-thumb thumb-coral">Aa</div>
-    <span class="card-tag">blender</span>
-    <h3 class="card-title">作品タイトル</h3>
-    <p>作品の説明文をここに書きます。</p>
-  </article>
-
-  <article class="card" data-tag="blender" data-difficult="ここに『難しかった点』を書きます。作業のどこでつまずいたか、どう試行錯誤したかなど。" data-favorite="ここに『好きな点』を書きます。完成して満足しているポイントや、こだわった部分など。">
-    <div class="tape"></div>
-    <div class="card-thumb thumb-teal">◆</div>
-    <span class="card-tag">blender</span>
-    <h3 class="card-title">作品タイトル</h3>
-    <p>作品の説明文をここに書きます。</p>
-  </article>
-
-  <article class="card" data-tag="blender" data-difficult="ここに『難しかった点』を書きます。作業のどこでつまずいたか、どう試行錯誤したかなど。" data-favorite="ここに『好きな点』を書きます。完成して満足しているポイントや、こだわった部分など。">
-    <div class="tape"></div>
-    <div class="card-thumb thumb-yellow">✿</div>
-    <span class="card-tag">blender</span>
-    <h3 class="card-title">作品タイトル</h3>
-    <p>作品の説明文をここに書きます。</p>
-  </article>
-
-  <article class="card" data-tag="blender" data-difficult="ここに『難しかった点』を書きます。作業のどこでつまずいたか、どう試行錯誤したかなど。" data-favorite="ここに『好きな点』を書きます。完成して満足しているポイントや、こだわった部分など。">
-    <div class="tape"></div>
-    <div class="card-thumb thumb-coral">Aa</div>
-    <span class="card-tag">blender</span>
-    <h3 class="card-title">作品タイトル</h3>
-    <p>作品の説明文をここに書きます。</p>
-  </article>
-
-  <article class="card" data-tag="blender" data-difficult="ここに『難しかった点』を書きます。作業のどこでつまずいたか、どう試行錯誤したかなど。" data-favorite="ここに『好きな点』を書きます。完成して満足しているポイントや、こだわった部分など。">
-    <div class="tape"></div>
-    <div class="card-thumb thumb-teal">◆</div>
-    <span class="card-tag">blender</span>
-    <h3 class="card-title">作品タイトル</h3>
-    <p>作品の説明文をここに書きます。</p>
-  </article>
-
-  <article class="card" data-tag="blender" data-difficult="ここに『難しかった点』を書きます。作業のどこでつまずいたか、どう試行錯誤したかなど。" data-favorite="ここに『好きな点』を書きます。完成して満足しているポイントや、こだわった部分など。">
-    <div class="tape"></div>
-    <div class="card-thumb thumb-yellow">✿</div>
-    <span class="card-tag">blender</span>
-    <h3 class="card-title">作品タイトル</h3>
-    <p>作品の説明文をここに書きます。</p>
-  </article>
-
-  <article class="card" data-tag="blender" data-difficult="ここに『難しかった点』を書きます。作業のどこでつまずいたか、どう試行錯誤したかなど。" data-favorite="ここに『好きな点』を書きます。完成して満足しているポイントや、こだわった部分など。">
-    <div class="tape"></div>
-    <div class="card-thumb thumb-coral">Aa</div>
-    <span class="card-tag">blender</span>
-    <h3 class="card-title">作品タイトル</h3>
-    <p>作品の説明文をここに書きます。</p>
-  </article>
-
-  <article class="card" data-tag="blender" data-difficult="ここに『難しかった点』を書きます。作業のどこでつまずいたか、どう試行錯誤したかなど。" data-favorite="ここに『好きな点』を書きます。完成して満足しているポイントや、こだわった部分など。">
-    <div class="tape"></div>
-    <div class="card-thumb thumb-teal">◆</div>
-    <span class="card-tag">blender</span>
-    <h3 class="card-title">作品タイトル</h3>
-    <p>作品の説明文をここに書きます。</p>
-  </article>
-
-  <article class="card" data-tag="blender" data-difficult="ここに『難しかった点』を書きます。作業のどこでつまずいたか、どう試行錯誤したかなど。" data-favorite="ここに『好きな点』を書きます。完成して満足しているポイントや、こだわった部分など。">
-    <div class="tape"></div>
-    <div class="card-thumb thumb-yellow">✿</div>
-    <span class="card-tag">blender</span>
-    <h3 class="card-title">作品タイトル</h3>
-    <p>作品の説明文をここに書きます。</p>
-  </article>
-
-  <article class="card" data-tag="blender" data-difficult="ここに『難しかった点』を書きます。作業のどこでつまずいたか、どう試行錯誤したかなど。" data-favorite="ここに『好きな点』を書きます。完成して満足しているポイントや、こだわった部分など。">
-    <div class="tape"></div>
-    <div class="card-thumb thumb-coral">Aa</div>
-    <span class="card-tag">blender</span>
-    <h3 class="card-title">作品タイトル</h3>
-    <p>作品の説明文をここに書きます。</p>
-  </article>
-
-  <article class="card" data-tag="blender" data-difficult="ここに『難しかった点』を書きます。作業のどこでつまずいたか、どう試行錯誤したかなど。" data-favorite="ここに『好きな点』を書きます。完成して満足しているポイントや、こだわった部分など。">
-    <div class="tape"></div>
-    <div class="card-thumb thumb-teal">◆</div>
-    <span class="card-tag">blender</span>
-    <h3 class="card-title">作品タイトル</h3>
-    <p>作品の説明文をここに書きます。</p>
-  </article>
-
-  <article class="card" data-tag="blender" data-difficult="ここに『難しかった点』を書きます。作業のどこでつまずいたか、どう試行錯誤したかなど。" data-favorite="ここに『好きな点』を書きます。完成して満足しているポイントや、こだわった部分など。">
-    <div class="tape"></div>
-    <div class="card-thumb thumb-yellow">✿</div>
-    <span class="card-tag">blender</span>
-    <h3 class="card-title">作品タイトル</h3>
-    <p>作品の説明文をここに書きます。</p>
-  </article>
-
-  <article class="card" data-tag="blender" data-difficult="ここに『難しかった点』を書きます。作業のどこでつまずいたか、どう試行錯誤したかなど。" data-favorite="ここに『好きな点』を書きます。完成して満足しているポイントや、こだわった部分など。">
-    <div class="tape"></div>
-    <div class="card-thumb thumb-coral">Aa</div>
-    <span class="card-tag">blender</span>
-    <h3 class="card-title">作品タイトル</h3>
-    <p>作品の説明文をここに書きます。</p>
-  </article>
-
-  <article class="card" data-tag="blender" data-difficult="ここに『難しかった点』を書きます。作業のどこでつまずいたか、どう試行錯誤したかなど。" data-favorite="ここに『好きな点』を書きます。完成して満足しているポイントや、こだわった部分など。">
-    <div class="tape"></div>
-    <div class="card-thumb thumb-teal">◆</div>
-    <span class="card-tag">blender</span>
-    <h3 class="card-title">作品タイトル</h3>
-    <p>作品の説明文をここに書きます。</p>
-  </article>
-
-  <article class="card" data-tag="blender" data-difficult="ここに『難しかった点』を書きます。作業のどこでつまずいたか、どう試行錯誤したかなど。" data-favorite="ここに『好きな点』を書きます。完成して満足しているポイントや、こだわった部分など。">
-    <div class="tape"></div>
-    <div class="card-thumb thumb-yellow">✿</div>
-    <span class="card-tag">blender</span>
-    <h3 class="card-title">作品タイトル</h3>
-    <p>作品の説明文をここに書きます。</p>
-  </article>
-
 </div><!-- /#blenderSource -->
 
 <!-- ================= BLENDER SUMMARY (別画面・同じリンク内で切り替え) ================= -->
@@ -965,6 +904,7 @@
       <button class="work-modal-close" onclick="closeWorkModal()" aria-label="閉じる">×</button>
       <h3 class="work-modal-title" id="workModalTitle"></h3>
       <img class="work-modal-image" id="workModalImage" src="" alt="" hidden>
+      <video class="work-modal-image" id="workModalVideo" controls playsinline hidden></video>
       <div class="work-modal-section">
         <h4>難しかった点</h4>
         <p id="workModalDifficult"></p>
@@ -1031,6 +971,7 @@
   const workModalBackdrop = document.getElementById('workModalBackdrop');
   const workModalTitle = document.getElementById('workModalTitle');
   const workModalImage = document.getElementById('workModalImage');
+  const workModalVideo = document.getElementById('workModalVideo');
   const workModalDifficult = document.getElementById('workModalDifficult');
   const workModalFavorite = document.getElementById('workModalFavorite');
 
@@ -1038,14 +979,26 @@
     const title = card.querySelector('.card-title')?.textContent || '';
     workModalTitle.textContent = title;
 
+    const cardVideo = card.querySelector('.card-thumb video');
     const cardImg = card.querySelector('.card-thumb img');
-    if (cardImg){
+
+    if (cardVideo){
+      workModalVideo.src = cardVideo.src;
+      workModalVideo.hidden = false;
+      workModalImage.hidden = true;
+      workModalImage.src = '';
+      workModalVideo.play().catch(() => {});
+    } else if (cardImg){
       workModalImage.src = cardImg.src;
       workModalImage.alt = cardImg.alt || title;
       workModalImage.hidden = false;
+      workModalVideo.hidden = true;
+      workModalVideo.removeAttribute('src');
     } else {
       workModalImage.src = '';
       workModalImage.hidden = true;
+      workModalVideo.hidden = true;
+      workModalVideo.removeAttribute('src');
     }
 
     workModalDifficult.textContent = card.dataset.difficult || '';
@@ -1056,6 +1009,9 @@
   function closeWorkModal(event){
     if (event) event.stopPropagation();
     workModalBackdrop.classList.remove('is-open');
+    workModalVideo.pause();
+    workModalVideo.removeAttribute('src');
+    workModalVideo.load();
   }
 
   window.addEventListener('keydown', (e) => {
