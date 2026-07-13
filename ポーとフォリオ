@@ -341,10 +341,10 @@
     color: var(--coral);
   }
   /* ---------- BLENDER SUMMARY (同じリンク内で切り替わる別画面) ---------- */
-  #view-portfolio, #view-blender{
+  #view-portfolio, #view-blender, #view-website{
     min-height: 100vh;
   }
-  #view-blender{
+  #view-blender, #view-website{
     display: none;
   }
   .back-link{
@@ -374,6 +374,104 @@
   }
   #blenderBoard{
     justify-content: center;
+  }
+
+  /* ---------- WEBSITE CASE STUDY (作品を1つずつじっくり紹介するページ) ---------- */
+  .website-page{
+    padding-top: 70px;
+    padding-bottom: 60px;
+  }
+  .website-hero{
+    width: 100%;
+    max-height: 420px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin: 32px 0 40px;
+    background: var(--paper-2, #f0ece4);
+    display: block;
+  }
+  .website-hero[hidden]{ display: none; }
+  .website-tagline{
+    font-size: 1.1rem;
+    color: var(--coral);
+    font-weight: 600;
+    margin: 0 0 8px;
+  }
+  .website-intro{
+    max-width: 680px;
+    margin-bottom: 40px;
+  }
+  .website-intro p{
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--ink-soft);
+    margin: 0 0 16px;
+  }
+  .website-block{
+    max-width: 680px;
+    margin-bottom: 40px;
+  }
+  .website-block h3{
+    font-family: var(--display);
+    font-size: 1.2rem;
+    margin: 0 0 16px;
+  }
+  .website-feature-list{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .website-feature-list li{
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    padding-left: 22px;
+    position: relative;
+  }
+  .website-feature-list li::before{
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--coral);
+    font-weight: 700;
+  }
+  .website-tech-list{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .website-tech-list li{
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+    background: var(--paper-2, #f0ece4);
+    border: 1px solid var(--line);
+    border-radius: 100px;
+    padding: 6px 16px;
+  }
+  .website-visit-btn{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--paper);
+    background: var(--coral);
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 100px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .website-visit-btn:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(230,110,90,0.3);
   }
   /* Blenderまとめのカードはどこを押しても詳細が開けるように(紹介用カードは除く) */
   .blender-page #blenderBoard .card{
@@ -560,7 +658,7 @@
 
 <header class="nav">
   <div class="nav-inner">
-    <a class="nav-logo" href="#top">Haruto.</a>
+    <a class="nav-logo" href="#top">Home</a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#works">Works</a></li>
@@ -640,36 +738,38 @@
         <p>これまで制作したblenderの一覧</p>
       </article>
 
-      <article class="card" data-tag="Editorial">
+      <article class="card is-linked" data-tag="Website" onclick="showWebsiteView('vscode')">
         <div class="tape"></div>
-        <div class="card-thumb thumb-yellow">◆</div>
-        <span class="card-tag">Website</span>
-        <h3 class="card-title">VSCode</h3>
-        <p>ClaudeというAIを使って主に作成したwebサイトです。</p>
+        <div class="card-thumb card-thumb-photo">
+          <img src="ガチャスクショ.png" alt="ガチャスクショ">
+        </div>
+        <span class="card-tag">VSCode</span>
+        <h3 class="card-title">アニメ調ガチャ記録サイト</h3>
+        <p>ClaudeというAIを使用してアニメ調ゲームのガチャ記録サイトを作りました</p>
       </article>
 
       <article class="card" data-tag="Illustration">
         <div class="tape"></div>
         <div class="card-thumb thumb-coral">✿</div>
-        <span class="card-tag">Illustration</span>
-        <h3 class="card-title">Season Stamps</h3>
-        <p>四季をモチーフにしたスタンプ風イラストシリーズ。SNS用のステッカーパックとして展開しました。</p>
+        <span class="card-tag">?????</span>
+        <h3 class="card-title">coming soon...</h3>
+        <p>?????</p>
       </article>
 
       <article class="card" data-tag="Motion">
         <div class="tape"></div>
         <div class="card-thumb thumb-teal">◐</div>
-        <span class="card-tag">Motion</span>
-        <h3 class="card-title">Loop Radio</h3>
-        <p>ポッドキャストのオープニングモーション。レコードの回転をモチーフにしたループアニメーションを制作。</p>
+        <span class="card-tag">?????</span>
+        <h3 class="card-title">coming soon...</h3>
+        <p>?????</p>
       </article>
 
       <article class="card" data-tag="Branding">
         <div class="tape"></div>
         <div class="card-thumb thumb-yellow">✎</div>
-        <span class="card-tag">Branding</span>
-        <h3 class="card-title">Nekoyashiki Cafe</h3>
-        <p>猫がテーマの喫茶店のブランディング一式。メニュー、コースター、店内サインまでトータルで設計しました。</p>
+        <span class="card-tag">?????</span>
+        <h3 class="card-title">coming soon...</h3>
+        <p>?????</p>
       </article>
 
     </div>
@@ -922,6 +1022,47 @@
 
 </div><!-- /#view-blender -->
 
+<div id="view-website">
+
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#top" onclick="showPortfolioView(); return false;">Haruto.</a>
+      <a class="back-link" href="#top" onclick="showPortfolioView(); return false;">← ポートフォリオに戻る</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="section website-page" id="website-page">
+      <div class="section-head">
+        <span class="section-num">04</span>
+        <h2 class="section-title" id="websiteTitle">Website</h2>
+      </div>
+      <p class="website-tagline" id="websiteTagline"></p>
+
+      <img class="website-hero" id="websiteHero" src="" alt="" hidden>
+
+      <div class="website-intro" id="websiteIntro"></div>
+
+      <div class="website-block" id="websiteFeatureBlock">
+        <h3>主な機能</h3>
+        <ul class="website-feature-list" id="websiteFeatureList"></ul>
+      </div>
+
+      <div class="website-block" id="websiteTechBlock">
+        <h3>使用技術</h3>
+        <ul class="website-tech-list" id="websiteTechList"></ul>
+      </div>
+
+      <a class="website-visit-btn" id="websiteVisitBtn" href="#" target="_blank" rel="noopener">サイトを見る →</a>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Haruto uchida. Made with a little bit of paper and glue.
+  </footer>
+
+</div><!-- /#view-website -->
+
 <script>
   const revealEls = document.querySelectorAll('.reveal');
   const cards = document.querySelectorAll('.card');
@@ -1018,9 +1159,85 @@
     if (e.key === 'Escape') closeWorkModal();
   });
 
+  // ---------- Website case study: 作品ごとのケーススタディページ ----------
+  // ★ サイトが増えたら、このオブジェクトに項目を追加するだけでOKです。
+  const websiteData = {
+    vscode: {
+      title: 'ガチャ記録サイト',
+      tagline: 'ClaudeというAIを主に使って作成したサイト',
+      heroImage: '',
+      intro: [
+        '',
+        'アニメ調のガチャの記録をするサイトを作りました！使いやすさや見やすさを意識して制作しました！'
+      ],
+      features: [
+        'すり抜け率や最高ランクの平均連数を%やグラフで見れる',
+        '見やすいようにバージョンを分けて保存できます!(メモも残せるよ!)',
+        '天井ガイドといって天井やキャラ、武器の確率などの細かな詳細が書いてあるよ!'
+      ],
+      tech: ['HTML', 'CSS', 'JavaScript', 'JSON', 'Ruby'],
+      url: 'https://zzz-gacha-tracker.web.app'
+    }
+  };
+
+  const viewWebsite = document.getElementById('view-website');
+  const websiteTitle = document.getElementById('websiteTitle');
+  const websiteTagline = document.getElementById('websiteTagline');
+  const websiteHero = document.getElementById('websiteHero');
+  const websiteIntro = document.getElementById('websiteIntro');
+  const websiteFeatureList = document.getElementById('websiteFeatureList');
+  const websiteTechList = document.getElementById('websiteTechList');
+  const websiteVisitBtn = document.getElementById('websiteVisitBtn');
+
+  function showWebsiteView(id){
+    const data = websiteData[id];
+    if (!data) return;
+
+    websiteTitle.textContent = data.title;
+    websiteTagline.textContent = data.tagline || '';
+
+    if (data.heroImage){
+      websiteHero.src = data.heroImage;
+      websiteHero.alt = data.title;
+      websiteHero.hidden = false;
+    } else {
+      websiteHero.hidden = true;
+    }
+
+    websiteIntro.innerHTML = '';
+    (data.intro || []).forEach((p) => {
+      const el = document.createElement('p');
+      el.textContent = p;
+      websiteIntro.appendChild(el);
+    });
+
+    websiteFeatureList.innerHTML = '';
+    (data.features || []).forEach((f) => {
+      const li = document.createElement('li');
+      li.textContent = f;
+      websiteFeatureList.appendChild(li);
+    });
+
+    websiteTechList.innerHTML = '';
+    (data.tech || []).forEach((t) => {
+      const li = document.createElement('li');
+      li.textContent = t;
+      websiteTechList.appendChild(li);
+    });
+
+    websiteVisitBtn.href = data.url || '#';
+
+    viewPortfolio.style.display = 'none';
+    viewBlender.style.display = 'none';
+    viewWebsite.style.display = 'block';
+    window.scrollTo(0, 0);
+    history.pushState({ view: 'website', id }, '', '#website-' + id);
+  }
+
   function showBlenderView(){
     buildBlenderBoard();
     viewPortfolio.style.display = 'none';
+    viewWebsite.style.display = 'none';
     viewBlender.style.display = 'block';
     window.scrollTo(0, 0);
     history.pushState({ view: 'blender' }, '', '#blender-page');
@@ -1028,20 +1245,25 @@
 
   function showPortfolioView(){
     viewBlender.style.display = 'none';
+    viewWebsite.style.display = 'none';
     viewPortfolio.style.display = 'block';
     window.scrollTo(0, 0);
     history.pushState({ view: 'portfolio' }, '', window.location.pathname + window.location.search);
   }
 
-  // URLに #blender-page が付いた状態で開かれた場合は、最初からBlender画面を表示
+  // URLに #blender-page や #website-xxx が付いた状態で開かれた場合は、最初からその画面を表示
   if (window.location.hash === '#blender-page'){
     showBlenderView();
+  } else if (window.location.hash.startsWith('#website-')){
+    showWebsiteView(window.location.hash.replace('#website-', ''));
   }
 
   // ブラウザの「戻る/進む」ボタンにも対応
   window.addEventListener('popstate', () => {
     if (window.location.hash === '#blender-page'){
       showBlenderView();
+    } else if (window.location.hash.startsWith('#website-')){
+      showWebsiteView(window.location.hash.replace('#website-', ''));
     } else {
       showPortfolioView();
     }
